@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /* app/javascript/css/application.css */
+ @charset "utf-8";
+
+// Material design input
+.material-input {
+  label {
+    color: #3490dc;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all;
+  }
+  input {
+    &:focus ~ label, &:valid ~ label     {
+      top:-20px;
+      font-size: 1rem;
+      color: #3490dc;
+    }
+    &:focus ~ .bar:before, &:focus ~ .bar:after {
+      width:50%;
+    }
+    &[type=submit]:disabled {
+      background: grey;
+    }
+  }
+  .bar {
+    &:before, &:after   {
+      content: '';
+      height: 3px;
+      width: 0;
+      bottom: 0px;
+      position: absolute;
+      background: #3490dc;
+      transition:0.2s ease all;
+    }
+    &:before {
+      left:50%;
+    }
+    &:after {
+      right:50%;
+    }
+    &.error:before, &.error:after   {
+      background: red;
+      width:50%;
+    }
+  }
+  .error {
+    color: red;
+    font-size: 1rem;
+  }
+}
